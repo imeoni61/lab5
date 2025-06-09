@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Info</title>
+</head>
+<body>
+    <h2 id="firstTitle"></h2>
+    <h2 id="secondAuthor"></h2>
+    <h3>Genres of all books</h3>
+    <ul id="genreList"></ul>
+
+    <script>
+        // Book data structured like stuData
+        const bookData = {
+            "Books": [
+                {
+                    "title": "The Great Gatsby",
+                    "author": "F. Scott Fitzgerald",
+                    "publicationYear": 1925,
+                    "genres": ["Fiction", "Classics"]
+                },
+                {
+                    "title": "To Kill a Mockingbird",
+                    "author": "Harper Lee",
+                    "publicationYear": 1960,
+                    "genres": ["Fiction", "Coming-of-Age"]
+                }
+            ]
+        };
+
+        // (a) Display the title of the first book
+        document.getElementById("firstTitle").textContent =
+            "Title of the first book: " + bookData.Books[0].title;
+
+        // (b) Display the author of the second book
+        document.getElementById("secondAuthor").textContent =
+            "Author of the second book: " + bookData.Books[1].author;
+
+        // (c) Display all genres from all books
+        const genreList = document.getElementById("genreList");
+        bookData.Books.forEach(book => {
+            book.genres.forEach(genre => {
+                const li = document.createElement("li");
+                li.textContent = genre;
+                genreList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
